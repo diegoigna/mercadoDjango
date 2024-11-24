@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h1 class="text-center py-4">Productos</h1>
+
+<table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Proveedor</th>
+        <th colspan="2">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for s in producto %}
+      <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.nombre}}</td>
+        <td>{{s.descripcion}}</td>
+        <td>{{s.precio}}</td>
+        <td>{{s.stock}}</td>
+        <td>{{s.provedor}}</td>
+        <td><a href="{% url 'editarProducto' s.id %}" class="btn btn-info">Editar</a></td>
+        <td><a href="eliminarProducto/{{s.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+        
+        
+       
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

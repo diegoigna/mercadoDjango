@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            
+            <form method="POST" class="card card-body">
+            <h1 class="text-center mb-4">Editar Proveedor</h1>
+            {% csrf_token %}
+           <div class="form-group">
+                <input type="text" id="txtNombre" name="txtNombre" value="{{proveedor.nombre}}" class="form-control mb-2" placeholder="Nombre Proveedor" maxlength="58" required>
+                <input type="text" id="txtdireccion" name="txtdireccion" value="{{proveedor.direccion}}"   class="form-control mb-2" placeholder="Dirección" maxlength="100" required>
+                <input type="number" id="txtfono" name="txtfono" value="{{proveedor.telefono}}"    class="form-control mb-2" placeholder="Teléfono" min="1"  required>
+                <input type="email" id="txtemail" name="txtemail"  value="{{proveedor.email}}"   class="form-control mb-2" placeholder="Correo eléctronico" maxlength="58" required>
+
+           </div>
+            <button type="submit"class="btn btn-primary mb-2">
+             Guardar cambios
+            </button>
+            <a href="{% url 'proveedor' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
